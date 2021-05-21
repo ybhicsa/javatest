@@ -12,7 +12,7 @@ public class Student2 {
 	int rank;
 
 	{// 초기화 블록 객체가 생성될 때마다 들어가는 (주로 DB가 한다)
-		stu_number = "S" + String.format("%03d", count++);// S000,S001
+		stu_number = "S" + String.format("%03d", ++count);// S000,S001
 	}
 
 	Student2() {
