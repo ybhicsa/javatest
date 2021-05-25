@@ -90,7 +90,7 @@ public class HomeWork_0521_02 {
 				eng = scan.nextInt();
 				System.out.println("수학점수을 입력");
 				math = scan.nextInt();
-
+				
 				s[i] = new Student3(name, kor, eng, math);
 				System.out.println("학생이 등록되었습니다. \n");
 			} // if
