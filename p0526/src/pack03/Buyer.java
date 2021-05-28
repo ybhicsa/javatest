@@ -2,11 +2,11 @@ package pack03;
 
 public class Buyer {
 
-	String id = "";
+	private String id = "";
 	
-	String pro_name="";
-	int money = 2000;
-	double bo_point= 0;
+	private String pro_name="";
+	private int money = 2000;
+	private double bo_point= 0;
 	
 	
 	Product[] num_ck = new Product[10];
@@ -25,6 +25,36 @@ public class Buyer {
 		System.out.println(p.pro_name+"이 구매되었습니다.");
 		
 		num_ck[i++] = p;
+	}
+	public int getI() {
+		return i;
+	}
+	public void setI(int i) {
+		this.i = i;
+	}
+	public String getPro_name() {
+		return pro_name;
+	}
+	public void setPro_name(String pro_name) {
+		this.pro_name = pro_name;
+	}
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	public double getBo_point() {
+		return bo_point;
+	}
+	public void setBo_point(double bo_point) {
+		this.bo_point = bo_point;
+	}
+	public Product[] getNum_ck() {
+		return num_ck;
+	}
+	public void setNum_ck(Product[] num_ck) {
+		this.num_ck = num_ck;
 	}
 	
 	

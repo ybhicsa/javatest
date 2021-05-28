@@ -1,4 +1,4 @@
-package pack03;
+package pack01;
 
 public class Refrigerator extends Product{
 
