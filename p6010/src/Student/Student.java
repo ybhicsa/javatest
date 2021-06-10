@@ -1,49 +1,37 @@
-package pack03;
+package Student;
 
 public class Student {
 
 	static int count;
-	private int stu_num;
+	private int stu_Num;
 	private String name;
-	private int kor;
-	private int eng;
-	private int math;
-	private int total;
+	private int kor, eng, math, total, rank;
 	private double avg;
-	private int rank;
 
 	{
-		stu_num = ++count;
+		stu_Num = ++count;
 	}
 
-	Student() {
+	public Student() {
 	}
 
-	Student(String name, int kor, int eng, int math) {
+	public Student(String name, int kor, int eng, int math) {
+
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
-		
 		this.total = kor + eng + math;
-		this.avg = this.total/3.0;
-		
+		this.avg = this.total / 3.0;
+
 	}
 
-//	public static int getCount() {
-//		return count;
-//	}
-//
-//	public static void setCount(int count) {
-//		Student.count = count;
-//	}
-
-	public int getStu_num() {
-		return stu_num;
+	public int getStu_Num() {
+		return stu_Num;
 	}
 
-	public void setStu_num(int stu_num) {
-		this.stu_num = stu_num;
+	public void setStu_Num(int stu_count) {
+		this.stu_Num = stu_count;
 	}
 
 	public String getName() {
@@ -86,14 +74,6 @@ public class Student {
 		this.total = total;
 	}
 
-	public double getAvg() {
-		return avg;
-	}
-
-	public void setAvg(double avg) {
-		this.avg = avg;
-	}
-
 	public int getRank() {
 		return rank;
 	}
@@ -102,6 +82,12 @@ public class Student {
 		this.rank = rank;
 	}
 
-	
-	
+	public double getAvg() {
+		return avg;
+	}
+
+	public void setAvg(double avg) {
+		this.avg = avg;
+	}
+
 }
