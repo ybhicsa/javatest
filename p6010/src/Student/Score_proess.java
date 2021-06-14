@@ -143,22 +143,20 @@ public class Score_proess {
 
 		stu.get(nameck).setTotal(stu.get(nameck).getKor() + stu.get(nameck).getEng() + stu.get(nameck).getMath());
 		stu.get(nameck).setAvg(stu.get(nameck).getTotal() / 3.0);
-		
+
 		System.out.println("수정이 완료되었습니다.");
 
 	}// 성적수정 매소드
 
-	
 	// 등수 업뎃
 	void stu_Update(ArrayList<Student> stu) {
-		
+
 		System.out.println("등수처리가 완료되었습니다.");
-		
-		
-		for(int i=0;i<stu.size();i++) {
+
+		for (int i = 0; i < stu.size(); i++) {
 			int rank = 1;
-			for(int j=0;j<stu.size();j++) {
-				if(stu.get(i).getAvg()<stu.get(j).getAvg()) {
+			for (int j = 0; j < stu.size(); j++) {
+				if (stu.get(i).getAvg() < stu.get(j).getAvg()) {
 					rank++;
 				}
 			}
