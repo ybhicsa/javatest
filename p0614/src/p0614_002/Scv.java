@@ -1,6 +1,6 @@
 package p0614_002;
 
-public class Scv extends GroundUnit implements Repairable,healavle{
+public class Scv extends GroundUnit implements Repairable{
 	
 	Scv() {
 		super(40);
