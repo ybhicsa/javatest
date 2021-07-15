@@ -132,11 +132,10 @@ public class MDao {
 	
 	
 	//정보변경
-	/*
-	 * public int modifyupdate(String id, String pw, String name, String nickName,
-	 * String gender, String tel, String address1, String address2, String hobby) {
-	 */
-	public int modifyupdate(String id) {
+	
+	  public int modifyupdate(String id, String pw, String name, String nickName,String gender, String tel, String address1, String address2, String hobby) {
+	 
+	/* public int modifyupdate(String id) { */
 		int updatemod = 0;
 		
 		try {
@@ -146,14 +145,14 @@ public class MDao {
 		String sql = " update member2 set pw=?, NAME=?, NICKNAME=?, GENDER=?, TEL=?, ADDRESS1=?, ADDRESS2=?, hobby=? where id=? ";
 		pstmt = conn.prepareStatement(sql);
 		
-		pstmt.setString(1, mDto.getPw());
-		pstmt.setString(2, mDto.getName());
-		pstmt.setString(3, mDto.getNickName());
-		pstmt.setString(4, mDto.getGender());
-		pstmt.setString(5, mDto.getTel());
-		pstmt.setString(6, mDto.getAddress1());
-		pstmt.setString(7, mDto.getAddress2());
-		pstmt.setString(8, mDto.getHobby());
+		pstmt.setString(1, pw);
+		pstmt.setString(2, name);
+		pstmt.setString(3, nickName);
+		pstmt.setString(4,gender);
+		pstmt.setString(5,tel);
+		pstmt.setString(6, address1);
+		pstmt.setString(7, address2);
+		pstmt.setString(8, hobby);
 		pstmt.setString(9, id);
 		
 		updatemod = pstmt.executeUpdate();

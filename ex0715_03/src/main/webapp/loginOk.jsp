@@ -28,6 +28,7 @@
 		} else {
 			alert("로그인 되었습니다.");
 			<%
+				
 				session.setAttribute("sessId", id);
 				session.setAttribute("sessPw", mDto.getPw());
 				session.setAttribute("sessName", mDto.getName());

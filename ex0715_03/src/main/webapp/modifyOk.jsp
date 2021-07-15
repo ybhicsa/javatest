@@ -27,8 +27,8 @@
 		MDto mDto = new MDto(id,pw,name,nickName,gender,tel,address1,address2,hobbys);
 	  	MDao mDao = new MDao();
 	  		
-	  	int updatemod = mDao.modifyupdate(id);
-	  	/* int updatemod = mDao.modifyupdate(id,pw,name,nickName,gender,tel,address1,address2,hobbys); */
+	  	/* int updatemod = mDao.modifyupdate(id); */
+	  	int updatemod = mDao.modifyupdate(id,pw,name,nickName,gender,tel,address1,address2,hobbys);
 	  	
 	%>
 		<meta charset="UTF-8">
