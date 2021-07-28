@@ -60,10 +60,15 @@ public class BController extends HttpServlet {
 			bService.execute(request, response);			
 			dispatcher = request.getRequestDispatcher("/board/blist.do");
 		}
-		if(urlName.equals("/board/bmodify.do")) {
-			bService = new BServiceModfify();
+		if(urlName.equals("/board/bmodift.do")) {
+			bService = new BServiceContent();
 			bService.execute(request, response);
 			dispatcher = request.getRequestDispatcher("bmodify.jsp");
+		}
+		if(urlName.equals("/board/modifyOk.do")) {
+			bService = new BServiceModfify();
+			bService.execute(request, response);
+			dispatcher = request.getRequestDispatcher("/board/blist.do");
 		}
 	
 	

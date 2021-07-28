@@ -7,17 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>글수정</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/write.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/write.css">
 </head>
 <body>
 <section>
     <h1>게시글수정</h1>
     <hr>
 
-    <form action="modify.do" name="modify" method="post">
+    <form action="modifyOk.do" name="modify" method="post" enctype="multipart/form-data">
       <table>
-      <input type="hidden" name="bId" value="">
+      <input type="hidden" name="bid" value="${bVo.bid }">
+      
+      
         <colgroup>
           <col width="15%">
           <col width="85%">
@@ -25,27 +27,27 @@
         <tr>
           <th>작성자</th>
           <td>
-            <input type="text" name="bName" value="" readonly>
+            <input type="text" name="bname" value="${bVo.bname }" readonly>
           </td>
         </tr>
         <tr>
           <th>제목</th>
           <td>
-            <input type="text" name="bTitle" value="">
+            <input type="text" name="btitle" value="${bVo.btitle }">
           </td>
         </tr>
         <tr>
           <th>내용</th>
           <td>
-            <textarea name="bContent" cols="50" rows="10">
-           
+            <textarea name="bcontent" cols="50" rows="10">
+           ${bVo.bcontent }
             </textarea>
           </td>
         </tr>
         <tr>
           <th>이미지 표시</th>
           <td>
-            <input type="file" name="file" id="file">
+            <input type="file" name="upload" id="upload" value="${bVo.bupload }">
           </td>
         </tr>
       </table>

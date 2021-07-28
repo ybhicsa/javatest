@@ -16,6 +16,9 @@
   	if(${result==1}){
   		alert("작성완료");
   	}
+  	if(${modUp==1}){
+  		alert("수정완료");
+  	}
   	
   </script>
   

@@ -26,6 +26,36 @@ public class BoardDao {
 	
 	
 	//================================================================================
+	// 수정
+	public int UpdateModify(int bid, String btitle, String bcontent, String bname, String upload) {
+		int modUp = 0;
+		try {
+			conn = getConnection();
+			String sql = "update board set btitle = ?,bcontent = ?,bname = ?,bupload = ? where bid = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, btitle);
+			pstmt.setString(2, bcontent);
+			pstmt.setString(3, bname);
+			pstmt.setString(4, upload);
+			pstmt.setInt(5, bid);
+			modUp = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return modUp;
+	}
 	//================================================================================
 	// 컨텐츠 작성
 	public int BoardInsert(String btitle, String bcontent, String bname, String upload) {
@@ -282,6 +312,8 @@ public class BoardDao {
 		return ds.getConnection();
 	}
 	//================================================================================
+	
+	
 	
 	
 	
