@@ -26,8 +26,42 @@ public class BoardDao {
 	
 	
 	//================================================================================
+	//================================================================================
+	// 컨텐츠 작성
+	public int BoardInsert(String btitle, String bcontent, String bname, String upload) {
+		int result = 0;
+		try {
+			conn = getConnection();
+			String sql = "insert into board values(BOARD_SEQ.nextval,?,?,?,BOARD_SEQ.currval,'0','0',sysdate,?,'0')";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, btitle);
+			pstmt.setString(2, bcontent);
+			pstmt.setString(3, bname);
+			pstmt.setString(4, upload);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
+	}
+	//================================================================================
+	// 컨탠츠 보기
 	public BoardVo boardContentView(int bid) {
 		BoardVo bVo = new BoardVo();
+		BHitUp(bid);
 		try {
 			conn = getConnection();
 			String sql = "select * from board where bid = ? ";
@@ -62,6 +96,33 @@ public class BoardDao {
 			}
 		}
 		return bVo;
+	}
+	//================================================================================
+	// 조회수 1증가
+	public int BHitUp(int bid) {
+		int hitup = 0;
+		try {
+			conn = getConnection();
+			String sql = "update board set bhit = bhit+1 where bid = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			hitup = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return hitup;
 	}
 	//================================================================================
 	// 보드테이블의 갯수를 불러온다.
@@ -221,7 +282,7 @@ public class BoardDao {
 		return ds.getConnection();
 	}
 	//================================================================================
-
+	
 	
 	
 }

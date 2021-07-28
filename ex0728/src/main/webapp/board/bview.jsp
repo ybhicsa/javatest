@@ -49,9 +49,9 @@
       </tr>
     </table>
 
-    <a href=""><div class="list">목록</div></a>
+    <a href="./blist.do"><div class="list">목록</div></a>
     <a href="./bdelete.do?bid=${bVo.bid }"><div class="list">삭제</div></a>
-    <a href=""><div class="list">수정</div></a>
+    <a href="./bmodift.do?bid=${bVo.bid }"><div class="list">수정</div></a>
     <a href=""><div class="list">답변달기</div></a>
   </section>
 </body>

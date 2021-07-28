@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.site.ex0728.service.BService;
 import com.site.ex0728.service.BServiceContent;
 import com.site.ex0728.service.BServiceList;
+import com.site.ex0728.service.BServiceModfify;
+import com.site.ex0728.service.BServiceWrite;
 import com.site.ex0728.service.MService;
 import com.site.ex0728.service.MServiceDoLogin;
 
@@ -49,6 +51,19 @@ public class BController extends HttpServlet {
 			bService = new BServiceContent();
 			bService.execute(request, response);			
 			dispatcher = request.getRequestDispatcher("bview.jsp");
+		}
+		if(urlName.equals("/board/bwrite.do")) {		
+			dispatcher = request.getRequestDispatcher("bwrite.jsp");
+		}
+		if(urlName.equals("/board/writeOk.do")) {
+			bService = new BServiceWrite();
+			bService.execute(request, response);			
+			dispatcher = request.getRequestDispatcher("/board/blist.do");
+		}
+		if(urlName.equals("/board/bmodify.do")) {
+			bService = new BServiceModfify();
+			bService.execute(request, response);
+			dispatcher = request.getRequestDispatcher("bmodify.jsp");
 		}
 	
 	
