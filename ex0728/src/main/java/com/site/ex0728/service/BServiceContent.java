@@ -11,7 +11,9 @@ public class BServiceContent implements BService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		BoardDao bDao = new BoardDao();
-		
+		String bid = "111";
+		bid = request.getParameter("bid");
+		System.out.println(bid);
 		BoardVo bVo = bDao.boardContentView(Integer.parseInt(request.getParameter("bid")));
 
 		request.setAttribute("bVo", bVo);

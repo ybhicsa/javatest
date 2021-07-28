@@ -53,7 +53,7 @@
 	      <tr>
 	        <td><span class="table-notice">${bVo.bid }</span></td>
 	        <td class="table-title">
-	        <a href="./bview.do?bid=${bVo.bid }&category=${category}&keyword=${keyword}">${bVo.btitle }</a>
+	        <a href="./bview.do?bid=${bVo.bid }">${bVo.btitle }</a>
 	        </td>
 	        <td>${bVo.bname }</td>
 	        <td>${bVo.bdate }</td>

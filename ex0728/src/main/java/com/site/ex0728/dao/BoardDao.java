@@ -28,32 +28,35 @@ public class BoardDao {
 	//================================================================================
 	public BoardVo boardContentView(int bid) {
 		BoardVo bVo = new BoardVo();
-		String sql = "";
 		try {
 			conn = getConnection();
-			sql = "select * from board \r\n"
-				+ " where bid = ?";
+			String sql = "select * from board where bid = ? ";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
-			
-			
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				bid = rs.getInt("bid");
-				String btitle = rs.getString("btitle");
-				String bcontent = rs.getString("bcontent");
-				String bname = rs.getString("bname");
-				String bupload = rs.getString("bupload");
-				
-				bVo = new BoardVo(btitle,bcontent,bname,bupload);
+			while (rs.next()) {
+				btitle = rs.getString("btitle");
+				bcontent = rs.getString("bcontent");
+				bname = rs.getString("bname");
+				bgroup = rs.getInt("bgroup");
+				bstep = rs.getInt("bstep");
+				bindent = rs.getInt("bindent");
+				bdate = rs.getTimestamp("bdate");
+				bupload = rs.getString("bupload");
+				bhit = rs.getInt("bhit");
+				bVo = new BoardVo(bid, btitle, bcontent, bname, bgroup, bstep, bindent, bdate, bupload, bhit);
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				if (rs != null)	rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
